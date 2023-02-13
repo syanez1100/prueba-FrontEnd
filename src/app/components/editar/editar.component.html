@@ -1,0 +1,55 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{pais.nombre}}</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+
+<div class="modal-body">
+
+  <form #PaisaEditar="ngForm" (ngSubmit)="editar(PaisaEditar)" id="needs-validation" >
+
+    <div class="row justify-content-center align-items-center g-5">
+      <div class="col">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Nombre:</span>
+          <input type="text" class="form-control" name="nombre" [(ngModel)]="pais.nombre" required #nombre="ngModel">
+        </div>
+      </div>
+      <div class="col">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Continente:</span>
+          <select required name="continente" class="form-select" [(ngModel)]="continenteSelecionado">
+            <option *ngFor="let continente of continentes" [value]="continente.value">{{continente.label}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center align-items-center">
+      <div class="col"></div>
+      <div class="col">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Idioma:</span>
+          <input type="text" class="form-control" placeholder="Ingrese el idioma del Pais" name="idioma" [(ngModel)]="pais.idioma" required #idioma="ngModel">
+        </div>
+      </div>
+      <div class="col"></div>
+    </div>
+
+    <div class="modal-footer">
+      <div class="container mt-5">
+        <div *ngIf="alertEditar" class="alert alert-success alert-dismissible" role="alert">
+          {{mensaje}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button class="btn btn-success">Actualizar</button>
+    </div>
+
+  </form>
+</div>
+
+
+

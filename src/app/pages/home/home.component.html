@@ -1,0 +1,45 @@
+<app-header titulo="paises"></app-header>
+
+<div class="container text-center mt-5">
+  <a routerLink="agregar" class="btn btn-success" role="button">Agregar</a>
+</div>
+
+<div class="container mt-5">
+
+  <div *ngIf="alertEliminar" class="alert alert-danger alert-dismissible" role="alert">
+    {{mensaje}},Pais eliminado: {{paisEliminado}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <div *ngIf="spinner" class="d-flex justify-content-end">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <table class="table">
+
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Contiente</th>
+        <th scope="col">Idioma</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let pais of paises;index as i">
+        <th class="text-capitalize" scope="row">{{pais.nombre}}</th>
+        <td class="text-capitalize">{{pais.continente}}</td>
+        <td class="text-capitalize">{{pais.idioma}}</td>
+        <td><a (click)="openModal(pais)" class="btn btn-info" role="button"><img class="icono" src="assets/icons/icon-lapiz.svg" alt="icono-lapiz"></a></td>
+        <td><a class="btn btn-danger" role="button" (click)="eliminarPais(pais,i)"><img class="icono" src="assets/icons/icon-eliminar.svg" alt="icono-eliminar"></a></td>
+      </tr>
+    </tbody>
+
+  </table>
+
+</div>
+

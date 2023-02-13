@@ -1,0 +1,50 @@
+<app-header titulo="agregar pais"></app-header>
+
+<form #NuevoPais="ngForm" (ngSubmit)="agregar(NuevoPais)" id="needs-validation" >
+
+  <div class="container mt-5">
+    <div class="row justify-content-center align-items-center g-5">
+      <div class="col">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Nombre:</span>
+          <input type="text" class="form-control" placeholder="Ingrese el nombre del Pais" name="nombre" ngModel required #nombre="ngModel">
+        </div>
+      </div>
+      <div class="col">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Continente:</span>
+          <select required name="continente" ngModel class="form-select">
+            <option selected value="">Seleccione un Continente</option>
+            <option *ngFor="let contiente of continentes" [value]="contiente.value">{{contiente.label}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-2 text-center">
+    <div class="row justify-content-center align-items-center">
+      <div class="col"></div>
+      <div class="col">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Idioma:</span>
+          <input type="text" class="form-control" placeholder="Ingrese el idioma del Pais" name="idioma" ngModel required #idioma="ngModel">
+        </div>
+      </div>
+      <div class="col"></div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button class="btn btn-success">Agregar</button>
+  </div>
+
+</form>
+
+<div class="container mt-5">
+  <div *ngIf="alertAgregar" class="alert alert-success alert-dismissible" role="alert">
+    {{mensaje}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+</div>
+

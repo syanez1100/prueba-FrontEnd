@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+//see it's necesary import both scss/functions and scss/variables
+$rojo: #EA3A5C;
+$azuloscuro: #113857;
+$azulclaro: #3C79F5;
+$blanco: #F5F5F5;
+
+//see it's necesary import both scss/functions and scss/variables
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+
+$primary:       $rojo;
+$secondary:     $azulclaro;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $blanco;
+$dark:          $azuloscuro;
+
+//futhermore it's necesary override the $theme-colors
+
+// $theme-colors: (
+//   "primary":    $primary,
+//   "secondary":  $secondary,
+//   "success":    $success,
+//   "info":       $info,
+//   "warning":    $warning,
+//   "danger":     $danger,
+//   "light":      $light,
+//   "dark":       $dark
+// );
+
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
